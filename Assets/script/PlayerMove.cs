@@ -12,8 +12,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         float mx = Input.GetAxis("Mouse X");
         float my = Input.GetAxis("Mouse Y");
@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
             transform.RotateAround(transform.position, Vector3.up, mx);
 
         }
-        Vector3 movement = new Vector3(x, 0.0f, z);
-        rb.linearVelocity = movement * speed;
+        Vector3 movement = (transform.forward * z + transform.right * x).normalized;
+        rb.linearVelocity = new Vector3(movement.x * speed, rb.linearVelocity.y, movement.z * speed);
     }
 }
