@@ -108,3 +108,5 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 Assets/Creepy_Cat/
+Assets/Plugins/UniTask/Editor/UniTask.Editor.asmdef
+Assets/Plugins/UniTask/
