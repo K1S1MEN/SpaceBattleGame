@@ -2,7 +2,34 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public string DamageTag;
+    public int HP;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == DamageTag)
+        {
+            Damage();
+        }
+    }
+
+    protected virtual void Damage()
+    {
+        --HP;
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    protected void Die()
+    {
+        Destroy(this);
+    }
+
+    protected void Attack()
+    {
+
+    }
     void Start()
     {
         

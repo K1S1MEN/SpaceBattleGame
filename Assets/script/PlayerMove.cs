@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float speed = 1f;
     private float xRotation = 0f;
 
-    static bool PlayerPose = false;
+    static public bool PlayerPose = false;
 
     Rigidbody rb;
 
