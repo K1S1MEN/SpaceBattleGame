@@ -5,6 +5,8 @@ public class MoveShip : MonoBehaviour
     private Vector3 target;
     private Vector3 mouse;
     public GameObject GameObject;
+
+    [SerializeField] GameObject PlayerBullet;
     void Start()
     {
         
