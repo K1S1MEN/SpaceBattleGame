@@ -1,27 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class SystemMenuUI : MonoBehaviour
-{
-    [SerializeField] GameObject SystemUI;
-    private bool flag = false;
-    private void OnMouseEnter()
-    {
 
-        Debug.Log("a");
+public class ImageHover : MonoBehaviour
+{
+    [SerializeField] GameObject systemUI;
+    bool flag = false;
+    public void OpenUI()
+    {
         if (flag)
         {
-            SystemUI.SetActive(false);
+            systemUI.SetActive(false);
             flag = false;
         }
         else
         {
-            SystemUI.SetActive(true);
+            systemUI.SetActive(true);
             flag = true;
         }
-
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        
     }
 }
