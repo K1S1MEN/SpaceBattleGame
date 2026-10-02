@@ -25,4 +25,9 @@ public class MoveShip : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
+    void Shot()
+    {
+        Vector3 mousePos = Input.mousePosition;
+    }
 }
