@@ -5,8 +5,9 @@ public class MoveShip : MonoBehaviour
     private Vector3 target;
     private Vector3 mouse;
     public GameObject GameObject;
-
-    [SerializeField] GameObject PlayerBullet;
+    public float destroyTime;
+    [SerializeField] GameObject PlayerBulletPrefab;
+    GameObject ball;
     void Start()
     {
         
@@ -24,10 +25,21 @@ public class MoveShip : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shot();
+        }
     }
 
     void Shot()
     {
-        Vector3 mousePos = Input.mousePosition;
+        ball = Instantiate(PlayerBulletPrefab) as GameObject;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 worldDir = ray.direction;
+        Quaternion quaternion = Quaternion.LookRotation(worldDir);
+        ball.transform.rotation =quaternion;
+        ball.GetComponent<Bullet>().Shoot(worldDir.normalized*3000);
+        Destroy(ball,destroyTime);
     }
 }
